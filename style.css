@@ -185,9 +185,20 @@ details summary:hover {
 }
 
 #projects-pie-plot {
-  max-width: 15em;
+  max-width: 20em;
   margin-block: 2em;
   overflow: visible;
+
+  &:has(path:hover) {
+    path:not(:hover) {
+      opacity: 0.3;
+    }
+  }
+}
+
+#projects-pie-plot path {
+  transition: 300ms;
+  cursor: pointer;
 }
 
 .legend {
@@ -225,4 +236,12 @@ details summary:hover {
   box-sizing: border-box;
   padding: 0.5em;
   margin-bottom: 2em;
+}
+
+.selected {
+  --color: oklch(55% 0.08 330);
+
+  &:is(path) {
+    fill: var(--color);
+  }
 }

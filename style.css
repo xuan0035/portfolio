@@ -174,3 +174,18 @@ details summary::marker {
 details summary:hover {
   color: var(--color-accent-dark);
 }
+
+.section-heading {
+  margin-top: 2.5em;
+}
+
+.project-year {
+  color: oklch(50% 0 0);
+  font-size: 90%;
+}
+
+#projects-pie-plot {
+  max-width: 15em;
+  margin-block: 2em;
+  overflow: visible;
+}

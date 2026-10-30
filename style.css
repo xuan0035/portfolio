@@ -219,3 +219,10 @@ details summary:hover {
   gap: 2em;
   margin-bottom: 2em;
 }
+
+.searchBar {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5em;
+  margin-bottom: 2em;
+}

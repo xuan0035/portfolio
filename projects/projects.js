@@ -12,16 +12,44 @@ projectsTitle.textContent = `${projects.length} Projects`;
 
 let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
 
-let data = [1, 2, 3, 4, 5, 5];
-let sliceGenerator = d3.pie();
+let rolledData = d3.rollups(
+  projects,
+  (v) => v.length,
+  (d) => d.year,
+);
+
+rolledData.sort((a, b) => d3.descending(a[0], b[0]));
+
+let data = rolledData.map(([year, count]) => {
+  return { value: count, label: year };
+});
+
+let sliceGenerator = d3.pie().value((d) => d.value);
 let arcData = sliceGenerator(data);
 let arcs = arcData.map((d) => arcGenerator(d));
 
-let colors = d3.scaleOrdinal(d3.schemeSet2);
+let colors = d3.scaleOrdinal([
+  "oklch(90% 0.06 0)",
+  "oklch(80% 0.10 0)",
+  "oklch(70% 0.14 0)",
+  "oklch(60% 0.16 0)",
+  "oklch(50% 0.16 0)",
+  "oklch(40% 0.14 0)",
+]);
 
 arcs.forEach((arc, idx) => {
   d3.select("#projects-pie-plot")
     .append("path")
     .attr("d", arc)
     .attr("fill", colors(idx));
+});
+
+let legend = d3.select(".legend");
+
+data.forEach((d, idx) => {
+  legend
+    .append("li")
+    .attr("style", `--color:${colors(idx)}`)
+    .attr("class", "legend-item")
+    .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`);
 });

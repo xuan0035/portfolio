@@ -268,3 +268,11 @@ details summary:hover {
   font-weight: bold;
   color: var(--color-accent-dark);
 }
+
+.gridlines line {
+  stroke: oklch(50% 10% 200 / 20%);
+}
+
+.gridlines .domain {
+  display: none;
+}

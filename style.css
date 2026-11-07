@@ -245,3 +245,26 @@ details summary:hover {
     fill: var(--color);
   }
 }
+
+.stats {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 0.25em 1em;
+  margin: 1em 0;
+  text-align: center;
+}
+
+.stats dt {
+  grid-row: 1;
+  font-size: 80%;
+  text-transform: uppercase;
+  color: oklch(50% 0 0);
+}
+
+.stats dd {
+  grid-row: 2;
+  margin: 0;
+  font-size: 200%;
+  font-weight: bold;
+  color: var(--color-accent-dark);
+}

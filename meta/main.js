@@ -135,6 +135,11 @@ function renderScatterPlot(data, commits) {
     .domain([0, 24])
     .range([usableArea.bottom, usableArea.top]);
 
+  const [minLines, maxLines] = d3.extent(commits, (d) => d.totalLines);
+  const rScale = d3.scaleSqrt().domain([minLines, maxLines]).range([3, 20]);
+
+  const sortedCommits = d3.sort(commits, (d) => -d.totalLines);
+
   const gridlines = svg
     .append("g")
     .attr("class", "gridlines")
@@ -146,18 +151,21 @@ function renderScatterPlot(data, commits) {
 
   dots
     .selectAll("circle")
-    .data(commits)
+    .data(sortedCommits)
     .join("circle")
     .attr("cx", (d) => xScale(d.datetime))
     .attr("cy", (d) => yScale(d.hourFrac))
-    .attr("r", 5)
+    .attr("r", (d) => rScale(d.totalLines))
     .attr("fill", "oklch(65% 0.1 0)")
+    .style("fill-opacity", 0.5)
     .on("mouseenter", (event, commit) => {
+      d3.select(event.currentTarget).style("fill-opacity", 1);
       renderTooltipContent(commit);
       updateTooltipVisibility(true);
       updateTooltipPosition(event);
     })
-    .on("mouseleave", () => {
+    .on("mouseleave", (event) => {
+      d3.select(event.currentTarget).style("fill-opacity", 0.7);
       updateTooltipVisibility(false);
     });
 

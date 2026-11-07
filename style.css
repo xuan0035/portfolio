@@ -276,3 +276,47 @@ details summary:hover {
 .gridlines .domain {
   display: none;
 }
+
+dl.info {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25em 1em;
+  margin: 0;
+  transition-duration: 500ms;
+  transition-property: opacity, visibility;
+}
+
+dl.info dt {
+  color: oklch(50% 0 0);
+  font-size: 85%;
+}
+
+dl.info dd {
+  margin: 0;
+}
+
+dl.info[hidden]:not(:hover, :focus-within) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.tooltip {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  padding: 0.75em 1em;
+  border-radius: 0.5em;
+  background-color: color-mix(in oklch, var(--color-accent) 20%, canvas);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px oklch(0% 0 0 / 15%);
+}
+
+circle {
+  transition: 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+circle:hover {
+  transform: scale(1.5);
+}

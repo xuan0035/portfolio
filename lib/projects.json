@@ -1,9 +1,10 @@
 [
   {
-    "title": "Persuasive Visualization: NYPD Misconduct and Promotions",
+    "title": "Bikewatching",
     "year": "2026",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "A DSC 106 group project using ProPublica's NYPD civilian complaint data. We made charts arguing both for and against the claim that officers with more substantiated complaints are more likely to get promoted, then scored how deceptive each design choice was."
+    "description": "An interactive map of Bluebikes traffic in Boston and Cambridge. Stations are sized by trip volume and colored by whether more riders leave or arrive, with a slider to explore any time of day.",
+    "url": "https://xuan0035.github.io/bike-traffic-map/"
   },
   {
     "title": "Expository Visualization: Grocery Store Foods",
@@ -36,6 +37,12 @@
     "description": "As a data analytics intern, I designed and set up a PostHog event tracking schema covering 25+ user events for a safety app before its launch."
   },
   {
+    "title": "Visualization Critique",
+    "year": "2026",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Placeholder for my DSC 106 Project 2.5, a short critique of a real-world visualization."
+  },
+  {
     "title": "Mental Health Court Outcomes Research",
     "year": "2025",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
@@ -64,11 +71,5 @@
     "year": "2023",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
     "description": "A survey of 500+ Irvine Valley College students about how they use AI tools. It won an Outstanding Research Poster Award, and I presented it at regional and national symposiums."
-  },
-  {
-    "title": "Visualization Critique",
-    "year": "2026",
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Placeholder for my DSC 106 Project 2.5, a short critique of a real-world visualization."
   }
 ]

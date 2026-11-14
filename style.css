@@ -338,3 +338,13 @@ circle:hover {
 circle.selected {
   fill: oklch(55% 0.08 330);
 }
+
+.projects a {
+  color: inherit;
+  text-decoration-color: var(--color-accent);
+  text-underline-offset: 0.2em;
+}
+
+.projects a:hover {
+  color: var(--color-accent-dark);
+}
